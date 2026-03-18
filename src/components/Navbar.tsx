@@ -1,19 +1,26 @@
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+const NAV_LINKS = [
+  { label: 'Home',       id: 'home'       },
+  { label: 'About',      id: 'about'      },
+  { label: 'Services',   id: 'services'   },
+  { label: 'Membership', id: 'membership' },
+  { label: 'Trainers',   id: 'trainers'   },
+  { label: 'Contact',    id: 'contact'    },
+];
 
 const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
     setIsMobileOpen(false);
-    if (location.pathname !== '/') {
+    if (window.location.pathname !== '/') {
       navigate('/');
-      // small delay to let the page load before scrolling
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      }, 120);
     } else {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -21,52 +28,70 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-[0px] left-[0px] w-full z-50 bg-[#211d11]/90 backdrop-blur-md border-b border-[#d49e16]/20">
-      <div className="flex items-center justify-between whitespace-nowrap px-[24px] py-[16px] lg:px-[80px]">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-[12px]">
+      <div className="flex items-center justify-between px-[24px] py-[14px] lg:px-[80px]">
+
+        {/* ── Logo ── */}
+        <Link to="/" className="flex items-center gap-[12px] shrink-0">
           <img
             alt="Fitness Sports Center Logo"
             className="h-[32px] w-auto object-contain"
             src="/logo.jpg"
           />
-          <h2 className="text-[#f1f5f9] text-[20px] leading-[28px] font-bold tracking-[-0.015em]">
+          <h2 className="text-[#f1f5f9] text-[18px] leading-[28px] font-bold tracking-[-0.015em] hidden sm:block">
             Fitness Sports Center
           </h2>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex flex-1 justify-end gap-[32px] items-center">
-          <nav className="flex items-center gap-[36px]">
-            <button onClick={() => scrollToSection('home')} className="text-[#f1f5f9] hover:text-[#d49e16] text-[14px] leading-[20px] font-medium transition-colors duration-300">Home</button>
-            <button onClick={() => scrollToSection('about')} className="text-[#f1f5f9] hover:text-[#d49e16] text-[14px] leading-[20px] font-medium transition-colors duration-300">About</button>
-            <button onClick={() => scrollToSection('services')} className="text-[#f1f5f9] hover:text-[#d49e16] text-[14px] leading-[20px] font-medium transition-colors duration-300">Services</button>
-            <Link to="/contact" className="text-[#f1f5f9] hover:text-[#d49e16] text-[14px] leading-[20px] font-medium transition-colors duration-300">Contact</Link>
+        {/* ── Desktop Nav ── */}
+        <div className="hidden lg:flex flex-1 justify-end items-center gap-[32px]">
+          <nav className="flex items-center gap-[28px]">
+            {NAV_LINKS.map(({ label, id }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className="text-[#b8b09a] hover:text-[#d49e16] text-[14px] leading-[20px] font-medium transition-colors duration-300 whitespace-nowrap"
+              >
+                {label}
+              </button>
+            ))}
           </nav>
-          <div
-            className="bg-center bg-no-repeat aspect-square bg-cover rounded-[9999px] w-[40px] h-[40px] border-2 border-[#d49e16]/30"
-            style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_hxMfjar2QNV1kPQvt6kMwutIC1CvYaIHjX5mjBHmz0MkrFYaNe47ipz_aHsSjRVH6wFTrjaLFT3dnswF0L-6oo0R0seSZsSMdHYmmoC9737x1mJx0neyVbDHqazPVms-QDlcosbB_kKI933C-LTGiICqY0xLyBTXFOO_yRh46Gtafgdne5qn32AHfMbkUfmd4XT-gSFdel2Na_NGpzpGS69uhCOVBWjG_s5qgOjzYyB-YtMbhYdWJoeA6UBJ-_jVUIU_gTtvCs0")' }}
-          ></div>
+
+          {/* ── Profile Avatar ── */}
+          <button
+            className="w-[40px] h-[40px] rounded-full bg-[#2e2810] border border-[#d49e16]/30 flex items-center justify-center text-[#d49e16] hover:border-[#d49e16]/70 hover:bg-[#d49e16]/15 hover:scale-105 transition-all duration-300 shadow-md shadow-black/30 shrink-0"
+            aria-label="Profile"
+          >
+            <span className="material-symbols-outlined text-[20px]">person</span>
+          </button>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden flex flex-col justify-center items-center w-[40px] h-[40px] gap-[6px] group"
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          aria-label="Toggle mobile menu"
-        >
-          <span className={`block w-[24px] h-[2px] bg-[#f1f5f9] transition-all duration-300 ${isMobileOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
-          <span className={`block w-[24px] h-[2px] bg-[#f1f5f9] transition-all duration-300 ${isMobileOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-[24px] h-[2px] bg-[#f1f5f9] transition-all duration-300 ${isMobileOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
-        </button>
+        {/* ── Mobile Right Controls ── */}
+        <div className="lg:hidden flex items-center gap-[12px]">
+          {/* Mobile hamburger */}
+          <button
+            className="flex flex-col justify-center items-center w-[40px] h-[40px] gap-[5px]"
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <span className={`block w-[22px] h-[2px] bg-[#f1f5f9] origin-center transition-all duration-300 ${isMobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+            <span className={`block w-[22px] h-[2px] bg-[#f1f5f9] transition-all duration-300 ${isMobileOpen ? 'opacity-0 scale-x-0' : ''}`}></span>
+            <span className={`block w-[22px] h-[2px] bg-[#f1f5f9] origin-center transition-all duration-300 ${isMobileOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileOpen ? 'max-h-[300px] opacity-100' : 'max-h-[0px] opacity-0'}`}>
-        <nav className="flex flex-col bg-[#211d11] border-t border-[#d49e16]/10 px-[24px] pb-[16px] pt-[8px] gap-[4px]">
-          <button onClick={() => scrollToSection('home')} className="text-left text-[#f1f5f9] hover:text-[#d49e16] text-[15px] font-medium py-[10px] border-b border-[#d49e16]/10 transition-colors duration-200">Home</button>
-          <button onClick={() => scrollToSection('about')} className="text-left text-[#f1f5f9] hover:text-[#d49e16] text-[15px] font-medium py-[10px] border-b border-[#d49e16]/10 transition-colors duration-200">About</button>
-          <button onClick={() => scrollToSection('services')} className="text-left text-[#f1f5f9] hover:text-[#d49e16] text-[15px] font-medium py-[10px] border-b border-[#d49e16]/10 transition-colors duration-200">Services</button>
-          <Link to="/contact" onClick={() => setIsMobileOpen(false)} className="text-[#f1f5f9] hover:text-[#d49e16] text-[15px] font-medium py-[10px] transition-colors duration-200">Contact</Link>
+      {/* ── Mobile Dropdown ── */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-[0px] opacity-0'}`}>
+        <nav className="flex flex-col bg-[#1a1509]/95 border-t border-[#3d3623] px-[24px] pt-[8px] pb-[20px] gap-[2px]">
+          {NAV_LINKS.map(({ label, id }, i) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`text-left text-[#b8b09a] hover:text-[#d49e16] text-[15px] font-medium py-[11px] transition-colors duration-200 ${i < NAV_LINKS.length - 1 ? 'border-b border-[#3d3623]/60' : ''}`}
+            >
+              {label}
+            </button>
+          ))}
         </nav>
       </div>
     </header>
