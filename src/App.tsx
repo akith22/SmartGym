@@ -1,19 +1,19 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Layout from './layouts/Layout'
-import Home from './pages/Home'
-import Contact from './pages/Contact'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
+import Home from './pages/Home';
+import ContactPage from './pages/ContactPage';
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;
