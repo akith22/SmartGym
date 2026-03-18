@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="w-full">
+    <div id="home" className="w-full pt-[64px]">
       <div className="p-[0px] sm:p-[16px] lg:p-[40px]">
         <div 
           className="flex min-h-[600px] flex-col gap-[24px] bg-cover bg-center bg-no-repeat rounded-[0px] sm:rounded-[12px] items-center justify-center p-[24px] text-center shadow-2xl relative overflow-hidden" 
