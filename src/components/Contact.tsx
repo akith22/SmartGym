@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -11,11 +10,11 @@ const Contact = () => {
     const newErrors = { name: '', email: '', message: '' };
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Full name is required';
+      newErrors.name = 'Full Name is required';
       valid = false;
     }
     if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required';
+      newErrors.email = 'Email Address is required';
       valid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Invalid email format';
@@ -35,128 +34,117 @@ const Contact = () => {
     if (validate()) {
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 5000); // hide success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
     }
   };
 
   return (
-    <section className="py-24 bg-primary pt-32">
-      <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
-          <div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6">
-              Get in <span className="text-accent">Touch</span>
-            </h1>
-            <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-lg leading-relaxed">
-              Ready to start your fitness journey or have a question about our facilities? We'd love to hear from you. Our team typically responds within 24 hours.
-            </p>
-
-            <div className="flex flex-col gap-8 mb-12">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent shrink-0">
-                  <MapPin size={24} />
+    <>
+      <main className="flex-1 flex flex-col items-center py-[48px] px-[24px]">
+        <div className="max-w-[960px] w-full grid grid-cols-1 lg:grid-cols-2 gap-[48px]">
+          {/* Left Side: Copy & Info */}
+          <div className="flex flex-col gap-[32px]">
+            <div className="flex flex-col gap-[16px]">
+              <h1 className="text-[36px] leading-[40px] md:text-[48px] md:leading-[1] font-black tracking-tight text-[#0f172a] dark:text-[#f1f5f9]">
+                Get in <span className="text-[#d49e16] text-shadow-sm">Touch</span>
+              </h1>
+              <p className="text-[#475569] dark:text-[#94a3b8] text-[18px] leading-[28px] max-w-none">
+                Ready to start your fitness journey or have a question about our facilities? We'd love to hear from you. Our team typically responds within 24 hours.
+              </p>
+            </div>
+            <div className="space-y-[24px]">
+              <div className="flex items-start gap-[16px]">
+                <div className="bg-[#d49e16]/10 p-[12px] rounded-[8px] text-[#d49e16]">
+                  <span className="material-symbols-outlined">location_on</span>
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-lg mb-1">Visit Us</h3>
-                  <p className="text-gray-400">
-                    123 Iron Street, Muscle District<br />
-                    New York, NY 10001
-                  </p>
+                  <h3 className="font-bold text-[18px] leading-[28px]">Visit Us</h3>
+                  <p className="text-[#475569] dark:text-[#94a3b8]">123 Iron Street, Muscle District<br/>New York, NY 10001</p>
                 </div>
               </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent shrink-0">
-                  <Phone size={24} />
+              <div className="flex items-start gap-[16px]">
+                <div className="bg-[#d49e16]/10 p-[12px] rounded-[8px] text-[#d49e16]">
+                  <span className="material-symbols-outlined">call</span>
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-lg mb-1">Call Us</h3>
-                  <p className="text-gray-400">+1 (555) 123-4567</p>
+                  <h3 className="font-bold text-[18px] leading-[28px]">Call Us</h3>
+                  <p className="text-[#475569] dark:text-[#94a3b8]">+1 (555) 123-4567</p>
                 </div>
               </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent shrink-0">
-                  <Mail size={24} />
+              <div className="flex items-start gap-[16px]">
+                <div className="bg-[#d49e16]/10 p-[12px] rounded-[8px] text-[#d49e16]">
+                  <span className="material-symbols-outlined">mail</span>
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-lg mb-1">Email Us</h3>
-                  <p className="text-gray-400">hello@fitnesscenter.com</p>
+                  <h3 className="font-bold text-[18px] leading-[28px]">Email Us</h3>
+                  <p className="text-[#475569] dark:text-[#94a3b8]">hello@fitnesscenter.com</p>
                 </div>
               </div>
             </div>
-
+            {/* Success Message Area */}
             {isSubmitted && (
-              <div className="bg-emerald-900/30 border border-emerald-500/30 rounded-lg p-4 flex gap-3 text-emerald-400 max-w-lg animate-fade-in">
-                <CheckCircle className="shrink-0 mt-0.5" size={20} />
-                <p className="font-medium text-sm">Your message has been sent successfully. We'll get back to you soon!</p>
+              <div className="mt-[16px] p-[16px] rounded-[8px] bg-[#10b981]/10 border border-[#10b981]/20 flex items-center gap-[12px]">
+                <span className="material-symbols-outlined text-[#10b981]">check_circle</span>
+                <p className="text-[14px] leading-[20px] font-medium text-[#059669] dark:text-[#34d399]">Your message has been sent successfully. We'll get back to you soon!</p>
               </div>
             )}
           </div>
-
-          <div className="bg-secondary p-8 md:p-10 rounded-2xl border border-white/5 h-fit shadow-soft">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-              <div>
-                <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
-                  Full Name
-                </label>
+          {/* Right Side: Contact Form */}
+          <div className="bg-[#f1f5f9] dark:bg-[#1e293b]/40 p-[32px] rounded-[12px] border border-[#cbd5e1] dark:border-[#334155]/50 shadow-xl">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-[24px]">
+              <div className="flex flex-col gap-[8px]">
+                <label className="text-[14px] leading-[20px] font-semibold uppercase tracking-wider text-[#64748b] dark:text-[#94a3b8]" htmlFor="name">Full Name</label>
                 <input 
-                  type="text"
-                  placeholder="e.g. Alex Johnson"
+                  className={`w-full rounded-[8px] border-2 ${errors.name ? 'border-[#ef4444]' : 'border-[#cbd5e1] dark:border-[#334155]'} bg-[#ffffff] dark:bg-[#0f172a] text-[#0f172a] dark:text-[#ffffff] focus:ring-2 focus:ring-[#d49e16] focus:border-[#d49e16] p-[16px]`} 
+                  id="name" 
+                  name="name" 
+                  placeholder="e.g. Alex Johnson" 
+                  type="text" 
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className={`w-full bg-primary border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors`}
+                  onChange={(e) => setFormData(s => ({ ...s, name: e.target.value }))}
                 />
-                {errors.name && <p className="text-red-500 text-xs mt-1.5">{errors.name}</p>}
               </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
-                  Email Address
-                </label>
+              <div className="flex flex-col gap-[8px]">
+                <label className="text-[14px] leading-[20px] font-semibold uppercase tracking-wider text-[#64748b] dark:text-[#94a3b8]" htmlFor="email">Email Address</label>
                 <input 
+                  className={`w-full rounded-[8px] border-2 ${errors.email ? 'border-[#ef4444]' : 'border-[#cbd5e1] dark:border-[#334155]'} bg-[#ffffff] dark:bg-[#0f172a] text-[#0f172a] dark:text-[#ffffff] focus:ring-2 focus:ring-[#d49e16] focus:border-[#d49e16] p-[16px]`} 
+                  id="email" 
+                  name="email" 
+                  placeholder="alex@example.com" 
                   type="email"
-                  placeholder="alex@example.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`w-full bg-primary border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors`}
+                  onChange={(e) => setFormData(s => ({ ...s, email: e.target.value }))}
                 />
-                {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email}</p>}
               </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
-                  Your Message
-                </label>
+              <div className="flex flex-col gap-[8px]">
+                <label className="text-[14px] leading-[20px] font-semibold uppercase tracking-wider text-[#64748b] dark:text-[#94a3b8]" htmlFor="message">Your Message</label>
                 <textarea 
-                  placeholder="How can we help you achieve your goals?"
+                  className={`w-full rounded-[8px] border-2 ${errors.message ? 'border-[#ef4444]' : 'border-[#cbd5e1] dark:border-[#334155]'} bg-[#ffffff] dark:bg-[#0f172a] text-[#0f172a] dark:text-[#ffffff] focus:ring-2 focus:ring-[#d49e16] focus:border-[#d49e16] p-[16px] resize-none`} 
+                  id="message" 
+                  name="message" 
+                  placeholder="How can we help you achieve your goals?" 
+                  rows={5}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={4}
-                  className={`w-full bg-primary border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors resize-none mb-2`}
+                  onChange={(e) => setFormData(s => ({ ...s, message: e.target.value }))}
                 ></textarea>
-                {errors.message && <p className="text-red-500 text-xs mt-0">{errors.message}</p>}
               </div>
-
-              <button 
-                type="submit"
-                className="w-full bg-accent text-primary font-bold py-4 rounded-lg hover:bg-opacity-90 transition-all duration-300 active:scale-[0.98] mt-2 flex items-center justify-center gap-2 tracking-wide"
-              >
-                SUBMIT MESSAGE &rsaquo;
+              <button className="w-full bg-[#d49e16] hover:bg-[#d49e16]/90 text-[#211d11] font-extrabold py-[16px] px-[24px] rounded-[8px] transition-all flex items-center justify-center gap-[8px] shadow-lg shadow-[#d49e16]/20" type="submit">
+                <span>SUBMIT MESSAGE</span>
+                <span className="material-symbols-outlined text-[14px] leading-[20px]">send</span>
               </button>
             </form>
           </div>
         </div>
-        
-        <div className="w-full h-[400px] rounded-2xl overflow-hidden grayscale opacity-80 border border-white/5 relative bg-secondary">
-          <img 
-            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop" 
-            alt="Location Map" 
-            className="w-full h-full object-cover"
-          />
+      </main>
+
+      {/* Map Section */}
+      <section className="w-full px-[24px] py-[48px] max-w-[1200px] mx-auto">
+        <div className="w-full h-[320px] rounded-[12px] overflow-hidden border-2 border-[#d49e16]/20 relative grayscale contrast-125 dark:invert dark:hue-rotate-180">
+          <img className="w-full h-full object-cover" alt="Stylized urban map of New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjz8N5BQyCs9eRA1JeAnSFyTjOUD0zHW8e27ISGuVN6qu4yu1ft3P1fePOtGRebFCXFzO-M7P4rfGE2s9RfMMeG1CTn4GRNwQlBzEW-9ics1D_xJwOQ44sC_x7VKwzptLF_j9jfgXk-NebZQ5XVrl3yAQ9LxyJtAl4G-l4guLwFOlpa5Y22AlZ26V-QMmpoxJZVMvPmOKviTcK525APvYjaMvCVN9aE_BRN7c5KV0arhZBMJXVLBV83B_IMzEDxIQOOdHsDzGG7W0"/>
+          <div className="absolute inset-[0px] bg-[#d49e16]/10 pointer-events-none"></div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

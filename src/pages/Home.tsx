@@ -5,7 +5,7 @@ import CTA from '../components/CTA';
 
 const Home = () => {
   return (
-    <main>
+    <main className="flex-1">
       <Hero />
       <About />
       <Services />

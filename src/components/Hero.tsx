@@ -1,53 +1,36 @@
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background Image / Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: 'linear-gradient(to bottom, rgba(15,15,15,0.7), rgba(15,15,15,0.9)), url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop")',
-        }}
-      />
-      
-      <div className="relative section-container text-center flex flex-col items-center z-10 w-full">
-        <span className="text-accent uppercase tracking-[0.2em] text-sm font-bold mb-6">
-          Push Your Limits
-        </span>
-        
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-tight text-white">
-          Transform Your <br />
-          <span className="text-accent">Strength</span>
-        </h1>
-        
-        <p className="subheading max-w-2xl mt-4 mb-10 mx-auto">
-          Experience professional-grade training and state-of-the-art facilities designed for those who demand elite results.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="btn-primary">
-            Join Now
-          </button>
-          <button className="btn-outline">
-            View Programs
-          </button>
-        </div>
-        
-        <div className="mt-20 flex flex-wrap items-center justify-center gap-12 md:gap-24">
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-accent mb-1">24/7</h3>
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Access</p>
+    <div className="w-full">
+      <div className="p-[0px] sm:p-[16px] lg:p-[40px]">
+        <div 
+          className="flex min-h-[600px] flex-col gap-[24px] bg-cover bg-center bg-no-repeat rounded-[0px] sm:rounded-[12px] items-center justify-center p-[24px] text-center shadow-2xl relative overflow-hidden" 
+          style={{ backgroundImage: 'linear-gradient(rgba(33, 29, 17, 0.7) 0%, rgba(33, 29, 17, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBaNBkuqVhbBKT_r7wb9Yw1COvSX5hQaohQhq_o5RXsAz7SQETeF8fMoJ_mR_MykOVBGTM0LG1AfCSER5xmtXm6CBqn3EnSpZLIL5EfRAtk-qfiISI6zDNMuCxc0KXlhXSRIqxBFNUNEIpIxkVbtAXtwYVYJSlI8RBgAcnlRxe276hOoULoqLlL50YPNfRhVMl5f_JevL4qEzVoYsaqoLKBpSCagsmC9khcVJUySZiOzKwItzjFwfo7Y9dnl6620QUQFDuAs3yDMm8")' }}
+        >
+          <div className="flex flex-col gap-[16px] max-w-[768px] z-10 w-full">
+            <span className="text-[#d49e16] font-bold tracking-[0.2em] uppercase text-[14px] leading-[20px]">Push Your Limits</span>
+            <h1 className="text-[#f1f5f9] text-[48px] leading-[1] font-black tracking-[-0.033em] sm:text-[72px]">
+              Transform Your <span className="text-[#d49e16]">Strength</span>
+            </h1>
+            <h2 className="text-[#cbd5e1] text-[16px] leading-[24px] font-normal sm:text-[20px] sm:leading-[28px] max-w-[672px] mx-auto">
+              Experience professional-grade training and state-of-the-art facilities designed for those who demand elite results.
+            </h2>
           </div>
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-accent mb-1">50+</h3>
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Coaches</p>
+          <div className="flex flex-wrap gap-[16px] justify-center z-10 mt-[16px]">
+            <button className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-[8px] h-[48px] px-[32px] bg-[#d49e16] text-[#211d11] text-[16px] leading-[24px] font-bold tracking-[0.015em] hover:scale-105 transition-transform">
+              Join Now
+            </button>
+            <button className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-[8px] h-[48px] px-[32px] border-2 border-[#d49e16]/50 text-[#f1f5f9] text-[16px] leading-[24px] font-bold tracking-[0.015em] hover:bg-[#d49e16]/10 transition-colors">
+              View Programs
+            </button>
           </div>
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-accent mb-1">15K</h3>
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Members</p>
+          <div className="absolute bottom-[32px] left-[0px] right-[0px] flex justify-center gap-[40px] text-[#94a3b8] text-[12px] leading-[16px] tracking-[0.1em] uppercase hidden sm:flex">
+            <div className="flex flex-col items-center gap-[4px]"><span className="text-[#d49e16] text-[20px] leading-[28px] font-bold">24/7</span><span>Access</span></div>
+            <div className="flex flex-col items-center gap-[4px]"><span className="text-[#d49e16] text-[20px] leading-[28px] font-bold">50+</span><span>Coaches</span></div>
+            <div className="flex flex-col items-center gap-[4px]"><span className="text-[#d49e16] text-[20px] leading-[28px] font-bold">15k</span><span>Members</span></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

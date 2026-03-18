@@ -1,59 +1,41 @@
-import { Link } from 'react-router-dom';
-import { Trophy, Camera, Play } from 'lucide-react';
-
 const Footer = () => {
   return (
-    <footer className="bg-[#151515] py-16 border-t border-white/5">
-      <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-               <div className="w-8 h-8 bg-[#fbbf24]/10 rounded flex items-center justify-center">
-                 <div className="w-5 h-5 bg-accent rounded-sm"></div>
-               </div>
-              <span className="text-lg font-bold tracking-tight text-white">Fitness Sports Center</span>
-            </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              The ultimate destination for those who demand excellence from their training. Elite coaching, premium equipment, and a results-driven environment.
-            </p>
+    <footer className="border-t border-[#3d3623] bg-[#211d11] pt-[64px] pb-[32px] mt-auto w-full">
+      <div className="max-w-[1280px] mx-auto px-[16px] md:px-[40px] grid grid-cols-1 md:grid-cols-4 gap-[48px] mb-[48px]">
+        <div className="col-span-1 md:col-span-2 flex flex-col gap-[16px]">
+          <div className="flex items-center gap-[12px] text-[#d49e16] mb-[24px]">
+            <span className="material-symbols-outlined text-[30px] leading-[36px]">fitness_center</span>
+            <h2 className="text-[#f1f5f9] text-[20px] leading-[28px] font-bold tracking-tight">Fitness Sports Center</h2>
           </div>
-          
-          <div className="lg:ml-auto">
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
-            <ul className="flex flex-col gap-3">
-              <li><Link to="/#programs" className="text-gray-400 hover:text-accent text-sm transition-colors">Our Programs</Link></li>
-              <li><Link to="/#coaches" className="text-gray-400 hover:text-accent text-sm transition-colors">Coaches</Link></li>
-              <li><Link to="/#pricing" className="text-gray-400 hover:text-accent text-sm transition-colors">Pricing Plans</Link></li>
-              <li><Link to="/#gallery" className="text-gray-400 hover:text-accent text-sm transition-colors">Gym Gallery</Link></li>
-            </ul>
-          </div>
-          
-          <div className="lg:ml-auto">
-            <h4 className="text-white font-bold mb-6">Support</h4>
-            <ul className="flex flex-col gap-3">
-              <li><Link to="/privacy" className="text-gray-400 hover:text-accent text-sm transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-gray-400 hover:text-accent text-sm transition-colors">Terms of Service</Link></li>
-              <li><Link to="/rules" className="text-gray-400 hover:text-accent text-sm transition-colors">Member Rules</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-accent text-sm transition-colors">Contact Us</Link></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-gray-500 text-xs">
-            © 2024 Fitness Sports Center. All rights reserved.
+          <p className="text-[#c8b993] max-w-[448px]">
+            The ultimate destination for those who demand excellence from their training. Elite coaching, premium equipment, and a results-driven environment.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white/5 transition-colors">
-              <Trophy size={16} />
-            </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white/5 transition-colors">
-              <Camera size={16} />
-            </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white/5 transition-colors">
-              <Play size={16} />
-            </a>
-          </div>
+        </div>
+        <div>
+          <h4 className="text-[#f1f5f9] font-bold mb-[24px]">Quick Links</h4>
+          <ul className="space-y-[16px] text-[#c8b993] text-[14px] leading-[20px]">
+            <li><a className="hover:text-[#d49e16]" href="#">Our Programs</a></li>
+            <li><a className="hover:text-[#d49e16]" href="#">Coaches</a></li>
+            <li><a className="hover:text-[#d49e16]" href="#">Pricing Plans</a></li>
+            <li><a className="hover:text-[#d49e16]" href="#">Gym Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-[#f1f5f9] font-bold mb-[24px]">Support</h4>
+          <ul className="space-y-[16px] text-[#c8b993] text-[14px] leading-[20px]">
+            <li><a className="hover:text-[#d49e16]" href="#">Privacy Policy</a></li>
+            <li><a className="hover:text-[#d49e16]" href="#">Terms of Service</a></li>
+            <li><a className="hover:text-[#d49e16]" href="#">Member Rules</a></li>
+            <li><a className="hover:text-[#d49e16]" href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="max-w-[1280px] mx-auto px-[16px] md:px-[40px] pt-[32px] border-t border-[#3d3623]/50 flex flex-col md:flex-row justify-between items-center gap-[16px]">
+        <p className="text-[#c8b993] text-[12px] leading-[16px]">© 2024 Fitness Sports Center. All rights reserved. Built for performance.</p>
+        <div className="flex gap-[24px]">
+          <a className="text-[#c8b993] hover:text-[#d49e16]" href="#"><span className="material-symbols-outlined">social_leaderboard</span></a>
+          <a className="text-[#c8b993] hover:text-[#d49e16]" href="#"><span className="material-symbols-outlined">camera_enhance</span></a>
+          <a className="text-[#c8b993] hover:text-[#d49e16]" href="#"><span className="material-symbols-outlined">smart_display</span></a>
         </div>
       </div>
     </footer>

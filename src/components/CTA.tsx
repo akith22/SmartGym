@@ -1,24 +1,17 @@
 const CTA = () => {
   return (
-    <section className="py-24 bg-primary">
-      <div className="section-container">
-        <div className="bg-accent rounded-3xl p-12 md:p-20 text-center shadow-soft">
-          <h2 className="text-4xl md:text-6xl font-extrabold text-primary mb-6">
-            Ready to start your transformation?
-          </h2>
-          <p className="text-primary/80 font-medium text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Join our elite community today and get a complimentary 1-on-1 performance assessment with our head coach.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-primary text-white px-8 py-3.5 rounded-full font-bold hover:bg-opacity-90 transition-all duration-300 w-full sm:w-auto">
-              Join Membership
-            </button>
-            <button className="border-2 border-primary text-primary px-8 py-3.5 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 w-full sm:w-auto">
-              Tour Facilities
-            </button>
-          </div>
-        </div>
+    <section className="bg-[#d49e16] rounded-[16px] p-[32px] md:p-[64px] text-center max-w-[1280px] mx-auto px-[16px] md:px-[40px] mb-[96px] mt-[48px]">
+      <h2 className="text-[30px] leading-[36px] md:text-[48px] md:leading-[1] font-extrabold text-[#211d11] mb-[24px]">Ready to start your transformation?</h2>
+      <p className="text-[#211d11]/80 text-[18px] leading-[28px] max-w-[672px] mx-auto mb-[40px]">
+        Join our elite community today and get a complimentary 1-on-1 performance assessment with our head coach.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-[16px] justify-center">
+        <button className="bg-[#211d11] text-[#ffffff] px-[32px] py-[16px] rounded-[8px] font-bold hover:bg-[#000000] transition-colors">
+          Join Membership
+        </button>
+        <button className="bg-transparent border-2 border-[#211d11] text-[#211d11] px-[32px] py-[16px] rounded-[8px] font-bold hover:bg-[#211d11] hover:text-[#ffffff] transition-all">
+          Tour Facilities
+        </button>
       </div>
     </section>
   );

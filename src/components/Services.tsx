@@ -1,76 +1,110 @@
-import { Dumbbell, Users, Activity, Apple, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
-const services = [
-  {
-    icon: <Users size={20} className="text-accent" />,
-    title: 'Personal Training',
-    desc: 'One-on-one elite coaching focused on your specific mechanical needs and performance goals.',
-    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    icon: <Dumbbell size={20} className="text-accent" />,
-    title: 'Strength Training',
-    desc: 'Advanced weightlifting and powerlifting programs designed to build raw power and solid foundation.',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    icon: <Activity size={20} className="text-accent" />,
-    title: 'Cardio Programs',
-    desc: 'High-intensity endurance training to maximize metabolic rate and improve cardiovascular efficiency.',
-    image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=2069&auto=format&fit=crop',
-  },
-  {
-    icon: <Apple size={20} className="text-accent" />,
-    title: 'Nutrition Guidance',
-    desc: 'Custom meal and fuel plans tailored to your biometric data and training volume.',
-    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop',
-  },
-];
-
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-primary px-4 sm:px-6 lg:px-8">
-      <div className="section-container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <h2 className="heading-primary mb-4 text-3xl md:text-5xl">Our Premium Services</h2>
-            <p className="text-gray-400 max-w-2xl text-lg">
-              Tailored performance programs designed to help you dominate your fitness goals. From heavy lifts to precision nutrition, we have everything you need to succeed.
-            </p>
+    <section id="services" className="mb-[96px] max-w-[1280px] mx-auto px-[16px] md:px-[40px] py-[48px]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-[48px] gap-[24px]">
+        <div className="max-w-[672px]">
+          <h2 className="text-[30px] leading-[36px] font-bold text-[#f1f5f9] mb-[16px]">Our Premium Services</h2>
+          <p className="text-[#c8b993]">Tailored performance programs designed to help you dominate your fitness goals. From heavy lifts to precision nutrition, we have everything you need to succeed.</p>
+        </div>
+        <button className="flex items-center gap-[8px] text-[#d49e16] font-bold hover:underline">
+          View All Services <span className="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
+        {/* Service 1 */}
+        <div className="group bg-[#3d3623]/30 border border-[#3d3623] rounded-[12px] p-[4px] transition-all hover:border-[#d49e16]/50">
+          <div className="aspect-square w-full rounded-[8px] overflow-hidden mb-[16px] relative">
+            <img 
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              alt="Personal trainer guiding an athlete with weights" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiMjMeT6_Dy7MheyaLt66asCoHrHJyuyr1z1IAQn292vsUOJ2M7r28oP7xLWkWbeLxsq2Od9r0M67uP7pofsHQT-v6czSVwHJeuu_eadtvUt3xqBy6onam5xaK8mdguAtManmcfniMSa10M2v2DGgRNBfMVatgZOMSq26UakbCRqbZvk_-U7yi67egjQPwpXLTKv7Ok_IRxgX72-563uJrmBQJoZgqwoyDz2KWEqaUaln8HpQBviWZCYnbtxWJ1egooU_t9clEkns"
+            />
+            <div className="absolute inset-[0px] bg-gradient-to-t from-[#211d11]/80 to-transparent opacity-60"></div>
           </div>
-          <Link to="/#services" className="flex items-center gap-2 text-accent font-bold hover:gap-3 transition-all whitespace-nowrap">
-            View All Services <ArrowRight size={20} />
-          </Link>
+          <div className="p-[16px]">
+            <div className="flex items-center gap-[8px] mb-[8px]">
+              <span className="material-symbols-outlined text-[#d49e16] text-[20px] leading-[28px]">person</span>
+              <h3 className="text-[#f1f5f9] font-bold text-[18px] leading-[28px]">Personal Training</h3>
+            </div>
+            <p className="text-[#c8b993] text-[14px] leading-[20px] mb-[16px]">
+              One-on-one elite coaching focused on your specific mechanical needs and performance goals.
+            </p>
+            <a href="#" className="text-[#d49e16] text-[12px] leading-[16px] font-bold uppercase tracking-[0.1em] flex items-center gap-[4px] group-hover:gap-[8px] transition-all">
+              Learn More <span className="material-symbols-outlined text-[14px] leading-[20px]">chevron_right</span>
+            </a>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="bg-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-accent/40 hover:-translate-y-2 transition-all duration-300 group flex flex-col"
-            >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center gap-3 mb-4">
-                  {service.icon}
-                  <h3 className="text-xl font-bold text-white">{service.title}</h3>
-                </div>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow text-left">
-                  {service.desc}
-                </p>
-                <Link to="/#services" className="text-accent text-sm font-bold uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all group-hover:text-amber-400 w-fit">
-                  LEARN MORE &rsaquo;
-                </Link>
-              </div>
+        {/* Service 2 */}
+        <div className="group bg-[#3d3623]/30 border border-[#3d3623] rounded-[12px] p-[4px] transition-all hover:border-[#d49e16]/50">
+          <div className="aspect-square w-full rounded-[8px] overflow-hidden mb-[16px] relative">
+            <img 
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              alt="Athlete performing a heavy barbell squat" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBFtpqsSnHBUf7NXKJrUbxLgqjMJIHetdhTSLVbNUu2ipjJYi8683p9SqC53vC2xHG0dsYZYiK8WVhcI0v2LjovavnsIjG1FMlROjfCjMGNIjeSir89gy6sPib4AjhnUkavUosiJwxobVzqjcUpKpk6WLdGrJM9htLTJPDKufZus47QRcq9FOXX0HBMpBsWYLYFUGsnDfnILlNDI_HpYBxGgK5Pvczx0OACS36z7Hx1aBKxbgZ9dG5MB5sIOEoX55lLu5tKfbmfK8"
+            />
+            <div className="absolute inset-[0px] bg-gradient-to-t from-[#211d11]/80 to-transparent opacity-60"></div>
+          </div>
+          <div className="p-[16px]">
+            <div className="flex items-center gap-[8px] mb-[8px]">
+              <span className="material-symbols-outlined text-[#d49e16] text-[20px] leading-[28px]">fitness_center</span>
+              <h3 className="text-[#f1f5f9] font-bold text-[18px] leading-[28px]">Strength Training</h3>
             </div>
-          ))}
+            <p className="text-[#c8b993] text-[14px] leading-[20px] mb-[16px]">
+              Advanced weightlifting and powerlifting programs designed to build raw power and solid foundation.
+            </p>
+            <a href="#" className="text-[#d49e16] text-[12px] leading-[16px] font-bold uppercase tracking-[0.1em] flex items-center gap-[4px] group-hover:gap-[8px] transition-all">
+              Learn More <span className="material-symbols-outlined text-[14px] leading-[20px]">chevron_right</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Service 3 */}
+        <div className="group bg-[#3d3623]/30 border border-[#3d3623] rounded-[12px] p-[4px] transition-all hover:border-[#d49e16]/50">
+          <div className="aspect-square w-full rounded-[8px] overflow-hidden mb-[16px] relative">
+            <img 
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              alt="Person running fast on a treadmill" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBigvyxiHhxeOucWF7sni2Tsfo34g8rES0xBMSyHLK2fd7kwEj9DHv8kCqzrkm2OUkj87Px2Qa6l8XEgSr5PrAeLX539WQnYqIZy7M6QHr0q3-ifm71DYL3Wr6ayex2QW4L0nqiLlqjwv0nhKdI6z58NZcE-m3ko4ZGE0e77aXyJcF1rh-1TDzGCux5_dcqIHOyEE9eyXD4yqfhFh4RKcxeth-bdMa3NdYCKXY-miry-K6dGAzG2UoW4F_VI__5QNFcWulUAZEV_oU"
+            />
+            <div className="absolute inset-[0px] bg-gradient-to-t from-[#211d11]/80 to-transparent opacity-60"></div>
+          </div>
+          <div className="p-[16px]">
+            <div className="flex items-center gap-[8px] mb-[8px]">
+              <span className="material-symbols-outlined text-[#d49e16] text-[20px] leading-[28px]">speed</span>
+              <h3 className="text-[#f1f5f9] font-bold text-[18px] leading-[28px]">Cardio Programs</h3>
+            </div>
+            <p className="text-[#c8b993] text-[14px] leading-[20px] mb-[16px]">
+              High-intensity endurance training to maximize metabolic rate and improve cardiovascular efficiency.
+            </p>
+            <a href="#" className="text-[#d49e16] text-[12px] leading-[16px] font-bold uppercase tracking-[0.1em] flex items-center gap-[4px] group-hover:gap-[8px] transition-all">
+              Learn More <span className="material-symbols-outlined text-[14px] leading-[20px]">chevron_right</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Service 4 */}
+        <div className="group bg-[#3d3623]/30 border border-[#3d3623] rounded-[12px] p-[4px] transition-all hover:border-[#d49e16]/50">
+          <div className="aspect-square w-full rounded-[8px] overflow-hidden mb-[16px] relative">
+            <img 
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              alt="Healthy meal prep containers with protein and greens" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnJpp3oZGPO5khVAkrabFFTP6vkciWUbmCVUFHDk8QmM3qjkcaJF0Nxq8aNwHcCJbmb9NrjYpJuCPPhdzhGKqDFwP8gpS9tq8L02d0owDpgYXwkpazLAwVwvWCxgdZ1CY9UMQ9RI5RzTkGwYOBBs9unXfesWL1phNGzPjYow9fghoIMBHcWluAVdgK5_J4DHMtgZxHucczeRURSdbVbH012yfJCvO-tM8qPAG0ID-z4lR6z6bwYts8pDssY-dk8SIM8VStUFb5G5Q"
+            />
+            <div className="absolute inset-[0px] bg-gradient-to-t from-[#211d11]/80 to-transparent opacity-60"></div>
+          </div>
+          <div className="p-[16px]">
+            <div className="flex items-center gap-[8px] mb-[8px]">
+              <span className="material-symbols-outlined text-[#d49e16] text-[20px] leading-[28px]">nutrition</span>
+              <h3 className="text-[#f1f5f9] font-bold text-[18px] leading-[28px]">Nutrition Guidance</h3>
+            </div>
+            <p className="text-[#c8b993] text-[14px] leading-[20px] mb-[16px]">
+              Custom meal and fuel plans tailored to your biometric data and training volume.
+            </p>
+            <a href="#" className="text-[#d49e16] text-[12px] leading-[16px] font-bold uppercase tracking-[0.1em] flex items-center gap-[4px] group-hover:gap-[8px] transition-all">
+              Learn More <span className="material-symbols-outlined text-[14px] leading-[20px]">chevron_right</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
